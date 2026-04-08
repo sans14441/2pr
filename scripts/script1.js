@@ -1,9 +1,8 @@
 const btn = document.getElementById('talkBtn');
 const box = document.getElementById('dialogBox');
 const textElement = document.getElementById('dialogText');
-const character = document.getElementById('character'); 
+const character = document.getElementById('character');
 
-// Фрази
 const phrases = [
 "Почему скелеты не пьют воду? Потому-что вода это жидКость!",
 " Как называется татуировка на костях? КОСТО-мизация!",
@@ -17,39 +16,36 @@ const phrases = [
 "Из чего стреляет скелет? Из ЧЕРЕПпушки!",
 ];
 
-// Звук
-const voiceSound = new Audio('audio/sans.mp3');
-voiceSound.oncanplaythrough = function() {
-    console.log("Звук завантажився і готовий до гри!");
-};
+const voiceSound = new Audio('./sans_voice.mp3'); 
 
-voiceSound.onerror = function() {
-    console.error("Помилка: Браузер не зміг знайти або завантажити звук.");
-};
+
+let typingTimer; 
 
 btn.onclick = function() {
+ 
+  clearTimeout(typingTimer); 
+
   character.classList.remove('char-hidden');
   character.classList.add('char-visible');
   
-  // Далі все як раніше
   box.style.display = 'block';
-  textElement.innerHTML = "";
+  textElement.innerHTML = ""; // Очищуємо поле
   
   const randomIndex = Math.floor(Math.random() * phrases.length);
   const selectedPhrase = phrases[randomIndex];
   
   let i = 0;
+
   function typeWriter() {
     if (i < selectedPhrase.length) {
       textElement.innerHTML += selectedPhrase.charAt(i);
       
-    voiceSound.currentTime = 0; 
-voiceSound.play().catch(function(error) {
-  console.log("Звук заблоковано браузером або файл не знайдено:", error);
-});
+      voiceSound.currentTime = 0; 
+      voiceSound.play().catch(e => console.log("Sound skip")); 
 
       i++;
-      setTimeout(typeWriter, 50);
+ 
+      typingTimer = setTimeout(typeWriter, 50);
     }
   }
   
