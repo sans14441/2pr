@@ -16,7 +16,7 @@ const phrases = [
 "Из чего стреляет скелет? Из ЧЕРЕПпушки!",
 ];
 
-const voiceSound = new Audio('./sans.mp3'); 
+const voiceSound = new Audio('sans.mp3'); 
 
 
 let typingTimer; 
