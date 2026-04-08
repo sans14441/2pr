@@ -10,18 +10,17 @@ font-family: 'Montserrat', sans-serif;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Щоб шпалери були позаду контенту */
-}
+  z-index: -1; 
 
-/* Спільні стилі для всіх слайдів */
+
 .slide {
   position: absolute;
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
-  opacity: 0; /* Спочатку всі невидимі */
-  animation: imageFade 16s linear infinite; /* 16 секунд на повний цикл */
+  opacity: 0; 
+  animation: imageFade 16s linear infinite; 
 }
 
 /* Затримка для кожного слайда (16с / 4 = 4с на кожен) */
@@ -32,9 +31,9 @@ font-family: 'Montserrat', sans-serif;
 /* Сама анімація */
 @keyframes imageFade {
   0% { opacity: 0; }
-  5% { opacity: 1; }   /* Плавна поява */
-  25% { opacity: 1; }  /* Утримання видимості */
-  30% { opacity: 0; }  /* Плавне зникнення */
+  5% { opacity: 1; }  
+  25% { opacity: 1; }  
+  30% { opacity: 0; }  
   100% { opacity: 0; }
 }
 .box{
