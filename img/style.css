@@ -1,14 +1,41 @@
-{
+*{
 margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family: 'Montserrat', sans-serif;
 }
-body{
-margin: 0;
-padding: 0;
-background: url("2.webp") no-repeat;
-background-size: cover;
+.crossfade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Щоб шпалери були позаду контенту */
+}
+
+/* Спільні стилі для всіх слайдів */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0; /* Спочатку всі невидимі */
+  animation: imageFade 16s linear infinite; /* 16 секунд на повний цикл */
+}
+
+/* Затримка для кожного слайда (16с / 4 = 4с на кожен) */
+.slide:nth-child(2) { animation-delay: 4s; }
+.slide:nth-child(3) { animation-delay: 8s; }
+.slide:nth-child(4) { animation-delay: 12s; }
+
+/* Сама анімація */
+@keyframes imageFade {
+  0% { opacity: 0; }
+  5% { opacity: 1; }   /* Плавна поява */
+  25% { opacity: 1; }  /* Утримання видимості */
+  30% { opacity: 0; }  /* Плавне зникнення */
+  100% { opacity: 0; }
 }
 .box{
 width: 450px;
@@ -19,12 +46,6 @@ margin: auto;
 margin-top: 5%;
 color: white;
 font-family: 'Century Gothic',sans-serif;
-}
-.img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%; /* Бажано вказати ширину, але не обов'язково */
 }
 .box-img{
 border-radius: 50%;
@@ -64,4 +85,62 @@ transition: all ease-in-out 250ms;
 .box li a:hover{
 color: #b9b9b9;
 
+}
+
+#talkBtn {
+
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  
+  /* Задаємо розмір */
+  width: 150px; 
+  height: 50px; 
+  
+  /* Ставимо картинку-кістку фоном */
+  background-image: url('bone.png');
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center;
+  
+
+  color: #333; 
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  line-height: 50px; 
+  
+
+  transition: transform 0.2s;
+}
+
+#talkBtn:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+#character {
+  position: fixed;
+  top: 100px;    
+  left: 20px;   
+  z-index: 5;   
+  
+}
+
+#character img {
+  height: 150px; 
+  image-rendering: pixelated;
+}
+
+.char-hidden {
+  opacity: 0;
+  transform: scale(0); 
+  transition: all 0.5s ease-out;
+}
+
+
+.char-visible {
+  opacity: 1 !important;
+  transform: scale(1) !important;
 }
