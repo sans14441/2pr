@@ -10,31 +10,31 @@ font-family: 'Montserrat', sans-serif;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Щоб шпалери були позаду контенту */
+  z-index: -1; 
 }
 
-/* Спільні стилі для всіх слайдів */
+
 .slide {
   position: absolute;
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
-  opacity: 0; /* Спочатку всі невидимі */
-  animation: imageFade 16s linear infinite; /* 16 секунд на повний цикл */
+  opacity: 0;
+  animation: imageFade 16s linear infinite; 
 }
 
-/* Затримка для кожного слайда (16с / 4 = 4с на кожен) */
+
 .slide:nth-child(2) { animation-delay: 4s; }
 .slide:nth-child(3) { animation-delay: 8s; }
 .slide:nth-child(4) { animation-delay: 12s; }
 
-/* Сама анімація */
+
 @keyframes imageFade {
   0% { opacity: 0; }
-  5% { opacity: 1; }   /* Плавна поява */
-  25% { opacity: 1; }  /* Утримання видимості */
-  30% { opacity: 0; }  /* Плавне зникнення */
+  5% { opacity: 1; }   
+  25% { opacity: 1; }  
+  30% { opacity: 0; }  
   100% { opacity: 0; }
 }
 .box{
@@ -94,12 +94,12 @@ color: #b9b9b9;
   padding: 0;
   cursor: pointer;
   
-  /* Задаємо розмір */
+ 
   width: 150px; 
   height: 50px; 
   
-  /* Ставимо картинку-кістку фоном */
-  background-image: url('bone.png');
+
+  background-image: url('img/bone.png');
   background-size: contain; 
   background-repeat: no-repeat;
   background-position: center;
