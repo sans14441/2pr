@@ -15,21 +15,22 @@
 </head>
 <body>
 
-    <div class="container text-center my-3" style="position: relative; z-index: 10;">
-        <button id="talkBtn" class="btn btn-warning font-weight-bold">ПОГОВОРИТИ</button>
-        
-        <div id="character" class="char-hidden my-2">
-            <img src="img/sans.png" alt="Санс" class="img-fluid" style="max-height: 150px;">
-        </div>
-        
-        <div id="dialogBox" class="undertale-box mx-auto my-3" style="max-width: 600px;">
-            <div class="pixel-border">
-                <div class="content p-3">
-                    <span class="text" id="dialogText"></span>
-                </div>
+<div class="container-fluid" style="position: relative; z-index: 10;">
+    
+    <button id="talkBtn" class="btn btn-warning font-weight-bold position-absolute" style="top: 15px; left: 15px;">ПОГОВОРИТИ</button>
+    
+    <div id="character" class="char-hidden text-left" style="margin-top: 70px; margin-left: 15px;">
+        <img src="img/sans.png" alt="Санс" class="img-fluid" style="max-height: 120px;">
+    </div>
+    
+    <div id="dialogBox" class="undertale-box mx-auto my-3" style="max-width: 600px; margin-top: 20px !important;">
+        <div class="pixel-border">
+            <div class="content p-3">
+                <span class="text" id="dialogText"></span>
             </div>
         </div>
     </div>
+</div>>
 
     <div class="crossfade">
         <div class="slide" style="background-image: url('img/2.webp');"></div>
